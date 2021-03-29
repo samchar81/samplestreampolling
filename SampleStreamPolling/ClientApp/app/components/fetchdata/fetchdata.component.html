@@ -1,0 +1,77 @@
+<h1>Tweeter Sample Stream</h1>
+
+<p>This component demonstrates fetching data from the Tweeter Sample Stream API.</p>
+
+<p>{{startTime}}</p>
+<p *ngIf="!isStreamResponse"><em>Loading...</em></p>
+
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th>Total number of tweets received</th>
+            <th>Average tweets per hour/minute/second </th>
+            <th>Top emojis in tweets* </th>
+            <th>Percent of tweets that contains emojis </th>
+            <th>Top hashtags</th>
+            <th>Percent of tweets that contain a url</th>
+            <th>Percent of tweets that contain a photo url (pic.twitter.com or Instagram)</th>
+            <th>Top domains of urls in tweets</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ totalNumberofTweets() }}</td>
+            <td>
+                <table class='table table-bordered'>
+                    <thead>
+                        <tr>
+                            <th>
+                                Per Hour
+                            </th>
+                            <th>
+                                Per Minute
+                            </th>
+                            <th>
+                                Per Second
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{perHour}}
+                            </td>
+                            <td>
+                                {{perMin}}
+                            </td>
+                            <td>
+                                {{perSec}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{perOfTweetsUrl()}} %</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tweet Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of sampleStreams">
+            <td width="25%">{{ row.id }}</td>
+            <td width="75%">{{ row.text }}</td>
+        </tr>
+    </tbody>
+</table>
